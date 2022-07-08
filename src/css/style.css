@@ -1,0 +1,106 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: inherit;
+    font-family: 'Rubik', sans-serif;
+    line-height: 1.2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h3 {
+    color: seagreen;
+}
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    width: 70vw;
+    left: 15vw;
+    position: absolute;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    margin-bottom: 25px;
+    margin-top: 30px;
+}
+
+label {
+    font-size: 1.3rem;
+    padding-right: 10px;
+}
+
+form div span {
+    width: 49%;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
+input {
+    padding: 5px 10px;
+    width: 100%;
+    border: 1px solid #e2e2e2;
+}
+
+input[type='button'] {
+    background-color: seagreen;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    border: 1.5px white solid;
+    width: 15%;
+    text-align: center;
+    align-self: center;
+    padding: 10px 0;
+}
+
+input[type='button']:hover {
+    background-color: rgba(46, 139, 86, 0.5);
+    border: 1.5px solid seagreen;
+    /* color: seagreen; */
+}
+
+form div span label {
+    /* width: 10%; */
+}
+
+form {
+    display: flex;
+    flex-flow: column wrap;
+}
+form div {
+    justify-content: space-between;
+    display: inherit;
+    margin-bottom: 10px;
+}
+
+table {
+    margin-top: 50px;
+    width: 100%;
+}
+
+p#error {
+    color: crimson;
+    font-weight: 600;
+    margin-bottom: 10px;
+}

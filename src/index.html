@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Expense tracker</title>
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="./js/app.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800;900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Expense tracker</h1>
+                <h3>Add a new item</h3>
+            </header>
+            <section class="expense-form">
+                <p id="error"></p>
+                <form>
+                    <div class="expense-name">
+                        <label for="expense-desc">Name:</label>
+                        <input type="text" name="expense-desc" id="expense-desc" />
+                    </div>
+
+                    <div class="expense-cost-time">
+                        <span class="expense-time">
+                            <label for="expense-date">Date:</label>
+                            <input type="date" name="expense-date" id="expense-date" />
+                        </span>
+
+                        <span class="expense-cost">
+                            <label for="expense-price">Amount:</label>
+                            <input type="number" name="expense-price" id="expense-price" />
+                        </span>
+                    </div>
+
+                    <input type="button" value="Add expense" id="submit-btn" />
+                </form>
+            </section>
+
+            <section class="expense-output">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Date</td>
+                            <td>Amount</td>
+                        </tr>
+                    </thead>
+                    <tbody id="expense-table"></tbody>
+                </table>
+            </section>
+        </div>
+    </body>
+</html>
