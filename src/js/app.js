@@ -89,9 +89,9 @@ let error = (fault1, fault2, fault3) => {
         pError.innerHTML = `*Enter a ${fault1}, a ${fault2} and a ${fault3}`;
     } else if (fault2) {
         pError.innerHTML = `*Enter a ${fault1} and a ${fault2}`;
-    } /*else {
+    } else {
         pError.innerHTML = `*Enter a ${fault1}`;
-    }*/
+    }
 
     return;
 };
@@ -119,7 +119,7 @@ let checkForm = () => {
         return;
     }
     ///
-    /*   if (eDesc.value == '') {
+    if (eDesc.value == '') {
         error('description');
         return;
     }
@@ -130,5 +130,5 @@ let checkForm = () => {
     if (ePrice.value == '') {
         error('price');
         return;
-    } */
+    }
 };
