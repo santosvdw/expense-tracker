@@ -9,49 +9,50 @@ let dateList = [];
 let priceList = [];
 
 submitBtn.addEventListener('click', function () {
-    addItem();
+    checkForm();
 });
 
 window.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        addItem();
+        checkForm();
     }
 });
 
-let addItem = () => {
-    console.log(eDesc.value + ' ' + eDate.value + ' ' + ePrice.value);
-    //
-    checkForm();
-    if (eDesc.value == '') {
-        error('description');
-        return;
-    }
-    if (eDate.value == '') {
-        error('date');
-        return;
-    }
-    if (ePrice.value == '') {
-        error('price');
-        return;
-    }
-    ///////////////////////
-    if (eDesc.value == '' && eDate.value == '') {
-        error('description', 'date');
-        return;
-    }
-    if (eDesc.value == '' && ePrice.value == '') {
-        error('description', 'price');
-        return;
-    }
-    if (ePrice.value == '' && eDate.value == '') {
-        error('date', 'price');
-        return;
-    }
+let checkForm = () => {
     if (ePrice.value == '' && eDate.value == '' && eDesc.value == '') {
         error('description', 'date', 'price');
+        console.log('description', 'date', 'price');
         return;
+    } else if (eDesc.value == '' && eDate.value == '') {
+        error('description', 'date');
+        console.log('description', 'date');
+        return;
+    } else if (eDesc.value == '' && ePrice.value == '') {
+        error('description', 'price');
+        console.log('description', 'date');
+        return;
+    } else if (eDate.value == '' && ePrice.value == '') {
+        error('date', 'price');
+        console.log('date', 'price');
+        return;
+    } else if (eDesc.value == '') {
+        error('description');
+        return;
+    } else if (eDate.value == '') {
+        error('date');
+        return;
+    } else if (ePrice.value == '') {
+        error('price');
+        return;
+    } else {
+        pError.innerHTML = '';
+        addItem();
     }
+};
+
+let addItem = () => {
+    console.log(eDesc.value + ' ' + eDate.value + ' ' + ePrice.value);
     //
     descList.push(eDesc.value);
     dateList.push(eDate.value);
@@ -73,15 +74,22 @@ let saveItem = () => {
     localStorage.setItem('Descriptions', JSON.stringify(descList));
     localStorage.setItem('Dates', JSON.stringify(dateList));
     localStorage.setItem('Prices', JSON.stringify(priceList));
+    renderItem();
+};
+
+let renderItem = () => {
+    let storedDesc = localStorage.getItem('Descriptions');
+    let storedDate = localStorage.getItem('Dates');
+    let storedPrice = localStorage.getItem('Prices');
+    storedDesc = JSON.parse(storedDesc);
+    storedDate = JSON.parse(storedDate);
+    storedPrice = JSON.parse(storedPrice);
+    //
 };
 
 let clearStorage = () => {
     localStorage.clear();
 };
-
-function c() {
-    localStorage.clear();
-}
 
 let error = (fault1, fault2, fault3) => {
     console.log(`Enter a ${fault1}`);
@@ -96,39 +104,14 @@ let error = (fault1, fault2, fault3) => {
     return;
 };
 
-let checkForm = () => {
-    if (ePrice.value == '' && eDate.value == '' && eDesc.value == '') {
-        error('description', 'date', 'price');
-        console.log('description', 'date', 'price');
-        return;
-    }
-    ///////////////////////
-    if (eDesc.value == '' && eDate.value == '') {
-        error('description', 'date');
-        console.log('description', 'date');
-        return;
-    }
-    if (eDesc.value == '' && ePrice.value == '') {
-        error('description', 'price');
-        console.log('description', 'date');
-        return;
-    }
-    if (eDate.value == '' && ePrice.value == '') {
-        error('date', 'price');
-        console.log('date', 'price');
-        return;
-    }
-    ///
-    if (eDesc.value == '') {
-        error('description');
-        return;
-    }
-    if (eDate.value == '') {
-        error('date');
-        return;
-    }
-    if (ePrice.value == '') {
-        error('price');
-        return;
-    }
-};
+//
+//
+//
+//
+//
+//
+//
+
+function c() {
+    localStorage.clear();
+}
