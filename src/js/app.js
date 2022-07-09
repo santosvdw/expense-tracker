@@ -3,10 +3,16 @@ const eDate = document.querySelector('#expense-date');
 const ePrice = document.querySelector('#expense-price');
 const submitBtn = document.querySelector('#submit-btn');
 const pError = document.querySelector('#error');
+const tBody = document.querySelector('#expense-table');
+const euro = '€';
 
 let descList = [];
 let dateList = [];
 let priceList = [];
+
+window.onload = () => {
+    renderItem();
+};
 
 submitBtn.addEventListener('click', function () {
     checkForm();
@@ -84,7 +90,21 @@ let renderItem = () => {
     storedDesc = JSON.parse(storedDesc);
     storedDate = JSON.parse(storedDate);
     storedPrice = JSON.parse(storedPrice);
+    tBody.innerHTML = '';
     //
+
+    //
+    for (let i = 0; i < storedDesc.length; i++) {
+        console.log('Converted date: ' + dateFormat(storedDate[i], 'dd-MM-yyyy'));
+        console.log(storedDate[i]);
+        tBody.innerHTML += `
+        <tr>
+            <td>${storedDesc[i]}</td>
+            <td>${dateFormat(storedDate[i], 'dd-MM-yyyy')}</td>
+            <td>${euro + storedPrice[i]}</td>
+        </tr>
+        `;
+    }
 };
 
 let clearStorage = () => {
@@ -104,6 +124,31 @@ let error = (fault1, fault2, fault3) => {
     return;
 };
 
+//a simple date formatting function
+let dateFormat = (inputDate, format) => {
+    //parse the input date
+    const date = new Date(inputDate);
+
+    //extract the parts of the date
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    //replace the month
+    format = format.replace('MM', month.toString().padStart(2, '0'));
+
+    //replace the year
+    if (format.indexOf('yyyy') > -1) {
+        format = format.replace('yyyy', year.toString());
+    } else if (format.indexOf('yy') > -1) {
+        format = format.replace('yy', year.toString().substr(2, 2));
+    }
+
+    //replace the day
+    format = format.replace('dd', day.toString().padStart(2, '0'));
+
+    return format;
+};
 //
 //
 //
