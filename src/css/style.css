@@ -23,6 +23,7 @@ h6 {
 
 h1 {
     font-size: 4rem;
+    text-align: center;
 }
 
 h3 {
@@ -79,10 +80,6 @@ input[type='button']:hover {
     /* color: seagreen; */
 }
 
-form div span label {
-    /* width: 10%; */
-}
-
 form {
     display: flex;
     flex-flow: column wrap;
@@ -96,10 +93,29 @@ form div {
 table {
     margin-top: 50px;
     width: 100%;
+    border: 1;
 }
 
 p#error {
     color: crimson;
     font-weight: 600;
     margin-bottom: 10px;
+}
+
+tbody tr:nth-of-type(odd) {
+    background-color: rgb(218, 218, 218);
+}
+
+td {
+    padding: 5px 10px;
+    border-collapse: collapse;
+    outline: 1px solid rgb(218, 218, 218);
+}
+
+th {
+    text-align: left;
+}
+
+tr {
+    border-collapse: collapse;
 }

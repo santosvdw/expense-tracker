@@ -124,7 +124,6 @@ let error = (fault1, fault2, fault3) => {
     return;
 };
 
-//a simple date formatting function
 let dateFormat = (inputDate, format) => {
     //parse the input date
     const date = new Date(inputDate);
@@ -149,13 +148,6 @@ let dateFormat = (inputDate, format) => {
 
     return format;
 };
-//
-//
-//
-//
-//
-//
-//
 
 function c() {
     localStorage.clear();
