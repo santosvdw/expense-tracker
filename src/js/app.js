@@ -9,7 +9,7 @@ const euro = '€';
 let descList = [];
 let dateList = [];
 let priceList = [];
-
+//
 window.onload = () => {
     renderItem();
 };
